@@ -546,7 +546,7 @@ footer {
 
   .btn-primary {
     width: 100%;
-    max-width: 250px;
+    max-width: 100%;
   }
 
   .section-title {
