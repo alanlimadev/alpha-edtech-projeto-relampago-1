@@ -1,10 +1,272 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Desafio Relâmpago 1</title>
-    <link rel="stylesheet" href="./style.css" />
+    <link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon" />
+    <title>Alan Lima | Projeto Relâmpago 1</title>
+    <link rel="stylesheet" href="style.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
   </head>
-  <body></body>
+  <body>
+    <header class="navbar">
+      <div class="nav-container">
+        <div class="logo">Alan Lima</div>
+        <nav>
+          <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#projetos">Projetos</a></li>
+            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="#contato">Contato</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section id="home" class="hero section">
+        <div class="container hero-container">
+          <div class="hero-left">
+            <img
+              src="assets/hero-alan.png"
+              alt="Foto de Alan Lima sorrindo"
+              class="hero-img"
+            />
+          </div>
+
+          <div class="hero-content">
+            <p class="greeting">
+              Olá! Eu me chamo <span class="text-purple">Alan Lima</span>
+            </p>
+            <h1>
+              Sou aspirante a <br />
+              desenvolvedor na <br />
+              <span class="highlight-box">Alpha Edtech</span>
+            </h1>
+            <a href="#projetos" class="btn btn-primary">VER PROJETOS</a>
+          </div>
+        </div>
+        <div class="glow glow-1"></div>
+        <div class="glow glow-2"></div>
+      </section>
+
+      <section id="projetos" class="projects section">
+        <div class="container">
+          <h2 class="section-title">Projetos</h2>
+
+          <div class="projects-grid">
+            <article class="project-card">
+              <div class="card-image">
+                <img
+                  src="assets/proj-coffee.jpg"
+                  alt="Preview do projeto Coffee Landing Page"
+                />
+              </div>
+              <div class="card-info">
+                <span class="tech-tag">HTML + CSS</span>
+                <h3>Landing Page</h3>
+                <div class="card-actions">
+                  <a
+                    href="#"
+                    class="btn btn-outline"
+                    aria-label="Ver código no Github"
+                    ><svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-github-icon lucide-github"
+                    >
+                      <path
+                        d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"
+                      />
+                      <path d="M9 18c-4.51 2-5-2-7-2" />
+                    </svg>
+                    Github</a
+                  >
+                  <a
+                    href="#"
+                    class="btn btn-outline"
+                    aria-label="Ver preview online"
+                    >Preview</a
+                  >
+                </div>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <div class="card-image">
+                <img
+                  src="assets/proj-juninho.jpg"
+                  alt="Preview do projeto Juninho Cursos"
+                />
+              </div>
+              <div class="card-info">
+                <span class="tech-tag">HTML + CSS</span>
+                <h3>Landing Page</h3>
+                <div class="card-actions">
+                  <a href="#" class="btn btn-outline"
+                    ><svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-github-icon lucide-github"
+                    >
+                      <path
+                        d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"
+                      />
+                      <path d="M9 18c-4.51 2-5-2-7-2" />
+                    </svg>
+                    Github</a
+                  >
+                  <a href="#" class="btn btn-outline">Preview</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <div class="card-image">
+                <img
+                  src="assets/proj-avatar.jpg"
+                  alt="Preview do projeto Simulação Avatar"
+                />
+              </div>
+              <div class="card-info">
+                <span class="tech-tag">HTML + CSS + JS</span>
+                <h3>Simulação Avatar</h3>
+                <div class="card-actions">
+                  <a href="#" class="btn btn-outline"
+                    ><svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-github-icon lucide-github"
+                    >
+                      <path
+                        d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"
+                      />
+                      <path d="M9 18c-4.51 2-5-2-7-2" />
+                    </svg>
+                    Github</a
+                  >
+                  <a href="#" class="btn btn-outline">Preview</a>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="sobre" class="about section">
+        <div class="container">
+          <h2 class="section-title centered-line">Sobre mim</h2>
+
+          <div class="about-content">
+            <div class="about-text">
+              <p>
+                Me chamo Alan Lima, sou aspirante a desenvolvedor na Alpha
+                Edtech e graduando em Engenharia da Computação. Minha trajetória
+                é marcada pela curiosidade técnica e pela busca por excelência.
+              </p>
+              <p>
+                Desde pequeno, cresci cercado por tecnologia na locadora de
+                vídeo games da minha família, mas sem ter um computador em casa
+                e desconhecendo as possibilidades da carreira, segui um caminho
+                diferente. Cursei Técnico em Enfermagem durante o ensino médio,
+                mas o sentimento de estar deslocado foi o catalisador para eu
+                buscar meu verdadeiro lugar.
+              </p>
+              <p>
+                Quando finalmente tive contato com a programação, aquela paixão
+                de infância se reacendeu com propósito. Na Universidade Federal
+                do Ceará, dei meus primeiros passos práticos como voluntário na
+                Loading Desenvolvimento Jr., onde expandi meu networking e
+                entendi que meu lugar é criando soluções. Hoje, sou movido pela
+                vontade de aprender e desenvolver exatamente o que cada projeto
+                necessita, buscando sempre um fator em comum: resolver
+                problemas.
+              </p>
+            </div>
+            <div class="about-image">
+              <img
+                src="assets/about-alan.jpg"
+                alt="Alan Lima trabalhando em seu notebook em um escritório"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contato" class="contact section">
+        <div class="container">
+          <h2 class="section-title">Contato</h2>
+
+          <div class="contact-container">
+            <div class="contact-left">
+              <h3>Vamos desenvolver juntos ?</h3>
+            </div>
+
+            <div class="contact-right">
+              <form action="#" method="POST" class="contact-form">
+                <div class="form-group">
+                  <label for="nome">Nome</label>
+                  <input type="text" id="nome" name="nome" required />
+                </div>
+                <div class="form-group">
+                  <label for="email">Email</label>
+                  <input type="email" id="email" name="email" required />
+                </div>
+                <div class="form-group">
+                  <label for="mensagem">Mensagem</label>
+                  <textarea
+                    id="mensagem"
+                    name="mensagem"
+                    rows="5"
+                    required
+                  ></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary btn-full">
+                  ENVIAR
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="glow-contact glow-contact-left"></div>
+        <div class="glow-contact glow-contact-top"></div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container footer-content">
+        <p>
+          Desenvolvido por <strong>Alan Lima</strong> - Primeiro Projeto
+          Relâmpago da Alpha Edtech
+        </p>
+      </div>
+    </footer>
+  </body>
 </html>
