@@ -156,6 +156,7 @@ body {
 
 .hero {
   position: relative;
+  overflow: hidden;
 }
 
 .hero-container {
@@ -304,6 +305,7 @@ body {
 
 .contact {
   position: relative;
+  overflow: hidden;
 }
 
 .contact-container {
