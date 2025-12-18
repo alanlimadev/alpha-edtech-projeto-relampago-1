@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Questão 6</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: monospace;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+        padding: 20px;
+      }
+
+      h1 {
+        color: #fff;
+        margin-bottom: 10px;
+        font-size: 24px;
+      }
+
+      .console-container {
+        display: grid;
+        grid-template-columns: 200px 1fr 200px;
+        gap: 20px;
+        max-width: 900px;
+        width: 100%;
+        background: #2a2a3e;
+        padding: 30px;
+        border-radius: 20px;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+      }
+
+      .controle-esquerdo {
+        background: linear-gradient(135deg, #00d4ff 0%, #0099cc 100%);
+        padding: 20px;
+        border-radius: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .controle-direito {
+        background: linear-gradient(135deg, #ff3b3b 0%, #cc0000 100%);
+        padding: 20px;
+        border-radius: 15px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+      }
+
+      .tela-jogo {
+        background: #000;
+        border: 4px solid #1a1a2e;
+        border-radius: 10px;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .console-output {
+        background: #111;
+        color: #00ff00;
+        padding: 20px;
+        border-radius: 8px;
+        min-height: 300px;
+        font-size: 14px;
+        border: 2px solid #333;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .secao-vida {
+        background: #1a1a1a;
+        padding: 15px;
+        border-radius: 8px;
+        border: 2px solid #333;
+        text-align: center;
+      }
+
+      .titulo-secao {
+        color: #888;
+        font-size: 11px;
+        text-transform: uppercase;
+        margin-bottom: 8px;
+        letter-spacing: 1px;
+      }
+
+      .coracoes {
+        font-size: 24px;
+        letter-spacing: 3px;
+        margin-top: 5px;
+      }
+
+      .secao-dados {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+      }
+
+      .item-dado {
+        background: #1a1a1a;
+        padding: 12px;
+        border-radius: 8px;
+        border: 2px solid #333;
+        text-align: center;
+      }
+
+      .item-dado-completo {
+        grid-column: 1 / -1;
+      }
+
+      .label-dado {
+        color: #888;
+        font-size: 10px;
+        text-transform: uppercase;
+        margin-bottom: 5px;
+        letter-spacing: 0.5px;
+      }
+
+      .valor-dado {
+        color: #00ff00;
+        font-size: 18px;
+        font-weight: bold;
+      }
+
+      .status-vivo {
+        color: #00ff00;
+      }
+
+      .status-morto {
+        color: #ff0000;
+      }
+
+      .dpad {
+        display: grid;
+        grid-template-columns: 50px 50px 50px;
+        grid-template-rows: 50px 50px 50px;
+        gap: 5px;
+      }
+
+      .dpad button {
+        background: #1a1a2e;
+        border: none;
+        border-radius: 8px;
+        color: #fff;
+        font-weight: bold;
+        cursor: pointer;
+        font-size: 18px;
+        transition: all 0.2s;
+      }
+
+      .dpad button:hover {
+        background: #2a2a3e;
+        transform: scale(1.05);
+      }
+
+      .dpad button:active {
+        transform: scale(0.95);
+      }
+
+      .dpad-cima {
+        grid-column: 2;
+        grid-row: 1;
+      }
+
+      .dpad-baixo {
+        grid-column: 2;
+        grid-row: 3;
+      }
+
+      .dpad-esquerda {
+        grid-column: 1;
+        grid-row: 2;
+      }
+
+      .dpad-direita {
+        grid-column: 3;
+        grid-row: 2;
+      }
+
+      .botao-acao {
+        width: 100%;
+        padding: 15px;
+        background: #fff;
+        border: none;
+        border-radius: 10px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.2s;
+        color: #1a1a2e;
+        font-size: 14px;
+      }
+
+      .botao-acao:hover {
+        transform: scale(1.05);
+        box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
+      }
+
+      .botao-acao:active {
+        transform: scale(0.95);
+      }
+
+      .botao-dano {
+        background: #ffcccc;
+        color: #cc0000;
+      }
+
+      @media (max-width: 768px) {
+        .console-container {
+          grid-template-columns: 1fr;
+          gap: 15px;
+        }
+
+        .controle-esquerdo,
+        .controle-direito {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="console-container">
+      <div class="controle-esquerdo">
+        <div class="dpad">
+          <button class="dpad-cima" onclick="mover('frente')">▲</button>
+          <button class="dpad-esquerda" onclick="mover('esquerda')">◀</button>
+          <button class="dpad-direita" onclick="mover('direita')">▶</button>
+          <button class="dpad-baixo" onclick="mover('tras')">▼</button>
+        </div>
+      </div>
+
+      <div class="tela-jogo">
+        <div id="saida" class="console-output">Iniciando...</div>
+      </div>
+
+      <div class="controle-direito">
+        <button class="botao-acao" onclick="pegarMoeda()">
+          💰 Pegar Moeda
+        </button>
+        <button class="botao-acao" onclick="atacar()">⚔️ Atacar</button>
+        <button class="botao-acao botao-dano" onclick="receberDano()">
+          💔 Receber Dano
+        </button>
+      </div>
+    </div>
+
+    <script>
+      class Avatar {
+        constructor(x, y) {
+          this._x = x >= 0 ? x : 0;
+          this._y = y >= 0 ? y : 0;
+          this._bag = 0;
+          this._hp = 10;
+          this._damage = 1;
+        }
+
+        _estaVivo() {
+          if (this._hp <= 0) {
+            console.warn('Ação bloqueada: O Avatar está morto.');
+            return false;
+          }
+          return true;
+        }
+
+        get x() {
+          return this._x;
+        }
+
+        get y() {
+          return this._y;
+        }
+
+        get moedas() {
+          return this._bag;
+        }
+
+        get vida() {
+          return this._hp;
+        }
+
+        forward() {
+          if (!this._estaVivo()) return;
+          this._y += 1;
+        }
+
+        back() {
+          if (!this._estaVivo()) return;
+          if (this._y > 0) {
+            this._y -= 1;
+          } else {
+            console.log('Limite inferior atingido (Y=0)');
+          }
+        }
+
+        right() {
+          if (!this._estaVivo()) return;
+          this._x += 1;
+        }
+
+        left() {
+          if (!this._estaVivo()) return;
+          if (this._x > 0) {
+            this._x -= 1;
+          } else {
+            console.log('Limite esquerdo atingido (X=0)');
+          }
+        }
+
+        addCoin() {
+          if (!this._estaVivo()) return;
+          this._bag += 1;
+          console.log('Moeda coletada!');
+        }
+
+        attack() {
+          if (!this._estaVivo()) return 0;
+          console.log(`Avatar atacou causando ${this._damage} de dano!`);
+          return this._damage;
+        }
+
+        receiveDamage(dano) {
+          if (!this._estaVivo()) return;
+
+          this._hp -= dano;
+          if (this._hp < 0) this._hp = 0;
+
+          console.log(
+            `Avatar recebeu ${dano} de dano. Vida restante: ${this._hp}`
+          );
+
+          if (this._hp === 0) {
+            console.error('GAME OVER: O Avatar morreu.');
+          }
+        }
+      }
+
+      const jogador = new Avatar(0, 0);
+      const divSaida = document.querySelector('#saida');
+
+      function atualizarExibicao() {
+        const estaVivo = jogador.vida > 0;
+        const coracoesVida = Math.floor(jogador.vida / 2);
+        const coracoesVazios = 5 - coracoesVida;
+
+        divSaida.textContent = '';
+
+        const secaoVida = document.createElement('div');
+        secaoVida.className = 'secao-vida';
+
+        const tituloVida = document.createElement('div');
+        tituloVida.className = 'titulo-secao';
+        tituloVida.textContent = 'Saúde';
+        secaoVida.appendChild(tituloVida);
+
+        const coracoes = document.createElement('div');
+        coracoes.className = 'coracoes';
+        coracoes.textContent =
+          '❤️'.repeat(coracoesVida) + '🖤'.repeat(coracoesVazios);
+        secaoVida.appendChild(coracoes);
+
+        const textoHP = document.createElement('div');
+        textoHP.style.fontSize = '12px';
+        textoHP.style.color = '#666';
+        textoHP.style.marginTop = '5px';
+        textoHP.textContent = `${jogador.vida}/10 HP`;
+        secaoVida.appendChild(textoHP);
+
+        divSaida.appendChild(secaoVida);
+
+        const secaoDados = document.createElement('div');
+        secaoDados.className = 'secao-dados';
+
+        const dados = [
+          {
+            label: 'Status',
+            valor: estaVivo ? 'VIVO' : 'MORTO',
+            classe: estaVivo ? 'status-vivo' : 'status-morto',
+          },
+          {
+            label: 'Moedas',
+            valor: `💰 ${jogador.moedas}`,
+            classe: 'valor-dado',
+          },
+          { label: 'Posição X', valor: jogador.x, classe: 'valor-dado' },
+          { label: 'Posição Y', valor: jogador.y, classe: 'valor-dado' },
+          {
+            label: 'Ataque',
+            valor: `⚔️ ${jogador._damage}`,
+            classe: 'valor-dado',
+            larguraCompleta: true,
+          },
+        ];
+
+        dados.forEach((dado) => {
+          const itemDado = document.createElement('div');
+          itemDado.className = dado.larguraCompleta
+            ? 'item-dado item-dado-completo'
+            : 'item-dado';
+
+          const labelDado = document.createElement('div');
+          labelDado.className = 'label-dado';
+          labelDado.textContent = dado.label;
+          itemDado.appendChild(labelDado);
+
+          const valorDado = document.createElement('div');
+          valorDado.className = dado.classe;
+          valorDado.textContent = dado.valor;
+          itemDado.appendChild(valorDado);
+
+          secaoDados.appendChild(itemDado);
+        });
+
+        divSaida.appendChild(secaoDados);
+      }
+
+      function mover(direcao) {
+        if (direcao === 'frente') jogador.forward();
+        if (direcao === 'tras') jogador.back();
+        if (direcao === 'direita') jogador.right();
+        if (direcao === 'esquerda') jogador.left();
+        atualizarExibicao();
+      }
+
+      function pegarMoeda() {
+        jogador.addCoin();
+        atualizarExibicao();
+      }
+
+      function atacar() {
+        jogador.attack();
+      }
+
+      function receberDano() {
+        jogador.receiveDamage(2);
+        atualizarExibicao();
+      }
+
+      atualizarExibicao();
+    </script>
+  </body>
+</html>
