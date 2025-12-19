@@ -514,7 +514,9 @@ footer {
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid var(--border-color);
+  color: var(--text-white);
   transition: all 0.3s ease;
+  text-decoration: none;
 }
 
 .social-links a:hover {
@@ -524,7 +526,8 @@ footer {
 }
 
 .social-links a svg {
-  color: var(--text-white);
+  width: 24px;
+  height: 24px;
 }
 
 @media (max-width: 1024px) {
