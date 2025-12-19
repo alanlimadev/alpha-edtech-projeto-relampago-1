@@ -358,15 +358,47 @@ body.menu-open {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  gap: 100px;
+  gap: 80px;
   position: relative;
   margin-top: 40px;
+}
+
+.contact-left {
+  max-width: 450px;
+  flex-shrink: 0;
 }
 
 .contact-left h3 {
   font-size: 50px;
   line-height: 1.3;
   font-weight: 400;
+  margin-bottom: 24px;
+}
+
+.contact-description {
+  font-size: 18px;
+  color: var(--text-gray);
+  line-height: 1.6;
+  margin-bottom: 40px;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  color: var(--text-gray);
+  font-size: 16px;
+}
+
+.contact-item svg {
+  color: var(--accent);
+  flex-shrink: 0;
 }
 
 .glow-contact {
@@ -392,13 +424,13 @@ body.menu-open {
   width: 120px;
   height: 120px;
   left: 25%;
-  top: -100px;
+  top: 4px;
   transform: translateX(-50%);
 }
 
 .contact-right {
   flex: 1;
-  max-width: 500px;
+  max-width: 600px;
   background: transparent;
   padding: 0;
   border-radius: 0;
@@ -493,6 +525,10 @@ footer {
     max-width: 500px;
   }
 
+  .hero-container {
+    padding-top: 140px;
+  }
+
   .hero-content h1 {
     font-size: 42px;
     margin-bottom: 60px;
@@ -507,7 +543,11 @@ footer {
   }
 
   .contact-container {
-    gap: 60px;
+    gap: 50px;
+  }
+
+  .contact-left {
+    max-width: 380px;
   }
 
   .contact-left h3 {
@@ -644,9 +684,24 @@ footer {
     gap: 40px;
   }
 
+  .contact-left {
+    text-align: center;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
   .contact-left h3 {
     font-size: 28px;
-    text-align: center;
+  }
+
+  .contact-description {
+    font-size: 16px;
+  }
+
+  .contact-info {
+    align-items: center;
   }
 
   .contact-right {
@@ -764,10 +819,6 @@ footer {
     padding-top: 80px;
   }
 
-  .hero-img {
-    max-width: 180px;
-  }
-
   .greeting {
     font-size: 16px;
     margin-bottom: 20px;
@@ -821,6 +872,15 @@ footer {
 
   .contact-left h3 {
     font-size: 22px;
+  }
+
+  .contact-description {
+    font-size: 14px;
+    margin-bottom: 30px;
+  }
+
+  .contact-item {
+    font-size: 14px;
   }
 
   .form-group {
@@ -903,6 +963,20 @@ footer {
     font-size: 20px;
   }
 
+  .contact-description {
+    font-size: 13px;
+  }
+
+  .contact-item {
+    font-size: 13px;
+    gap: 12px;
+  }
+
+  .contact-item svg {
+    width: 20px;
+    height: 20px;
+  }
+
   .btn {
     padding: 14px 24px;
     font-size: 14px;
@@ -939,10 +1013,6 @@ footer {
 
   .hero-container {
     padding-top: 70px;
-  }
-
-  .hero-img {
-    max-width: 150px;
   }
 
   .greeting {
@@ -996,6 +1066,20 @@ footer {
 
   .contact-left h3 {
     font-size: 18px;
+  }
+
+  .contact-description {
+    font-size: 12px;
+  }
+
+  .contact-item {
+    font-size: 12px;
+    gap: 10px;
+  }
+
+  .contact-item svg {
+    width: 18px;
+    height: 18px;
   }
 
   .form-group input,
