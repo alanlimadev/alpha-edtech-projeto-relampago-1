@@ -18,7 +18,25 @@
     <header class="navbar">
       <div class="nav-container">
         <div class="logo">Alan Lima</div>
-        <nav>
+        <button class="hamburger" aria-label="Menu de navegação">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#ffffff"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-menu-icon lucide-menu"
+          >
+            <path d="M4 5h16" />
+            <path d="M4 12h16" />
+            <path d="M4 19h16" />
+          </svg>
+        </button>
+        <nav class="desktop-nav">
           <ul class="nav-links">
             <li><a href="#home">Home</a></li>
             <li><a href="#projetos">Projetos</a></li>
@@ -27,6 +45,30 @@
           </ul>
         </nav>
       </div>
+      <nav class="mobile-menu">
+        <button class="close-menu" aria-label="Fechar menu">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="32"
+            height="32"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#ffffff"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M18 6L6 18" />
+            <path d="M6 6l12 12" />
+          </svg>
+        </button>
+        <ul class="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#projetos">Projetos</a></li>
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </nav>
     </header>
 
     <main>
@@ -272,5 +314,6 @@
         </p>
       </div>
     </footer>
+    <script src="script.js"></script>
   </body>
 </html>
